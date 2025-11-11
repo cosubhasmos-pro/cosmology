@@ -1,0 +1,65 @@
+theory:
+  camb:
+    extra_args:
+      num_massive_neutrinos: 1
+      halofit_version: mead
+      lmax: 2500
+      dark_energy_model: fluid
+      lens_potential_accuracy: 1
+likelihood:
+  planck_2018_lowl.TT: null
+  planck_2018_lowl.EE: null
+  planck_2018_highl_plik.TTTEEE: null
+  planck_2018_lensing.clik: null
+params:
+  ombh2:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref: 0.0224
+    proposal: 0.0001
+  omch2:
+    prior:
+      min: 0.001
+      max: 0.99
+    ref: 0.119
+    proposal: 0.001
+  H0:
+    prior:
+      min: 40
+      max: 100
+    ref: 67.0
+    proposal: 2.0
+  As:
+    prior:
+      min: 1.0e-09
+      max: 4.0e-09
+    ref: 2.1e-09
+    proposal: 5.0e-11
+  ns:
+    prior:
+      min: 0.8
+      max: 1.2
+    ref: 0.965
+    proposal: 0.004
+  tau:
+    prior:
+      min: 0.01
+      max: 0.2
+    ref: 0.054
+    proposal: 0.008
+  w:
+    prior:
+      min: -2.0
+      max: -0.3
+    ref: -1.0
+    proposal: 0.05
+sampler:
+  mcmc:
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.2
+    max_tries: 10000
+    covmat: null
+    proposal_scale: 1.9
+output: wcdm_planck
+packages_path: ./planck_data
